@@ -9517,13 +9517,13 @@ export default function Activity() {
               
             </div>
             <div data-v-12a80a3e="" className="navbar__content-center">
-              <div
+              {/* <div
                 data-v-12a80a3e=""
                 className="headLogo"
                 style={{  
                   backgroundImage: `url('assets/png/KHEL-MANTRA.png')`
                 }}
-              ></div>
+              ></div> */}
               <div data-v-12a80a3e="" className="navbar__content-title"></div>
             </div>
             <div data-v-12a80a3e="" className="navbar__content-right"></div>
@@ -9615,7 +9615,7 @@ export default function Activity() {
         
         <div data-v-4a7709f3="" role="feed" className="van-list" aria-busy="false">
           <div data-v-4a7709f3="" className="activitySection__container">
-            <div data-v-4a7709f3="" className="box">
+            {/* <div data-v-4a7709f3="" className="box">
               <img
                 data-v-4a7709f3=""
                 src="assets/png/new/Banner_20240514165448xobn.png"
@@ -9626,7 +9626,7 @@ export default function Activity() {
                   New Member First Deposit Bonus
                 </div>
               </div>
-            </div>
+            </div> */}
             <div data-v-4a7709f3="" className="box">
               <img
                 data-v-4a7709f3=""

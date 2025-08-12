@@ -121,7 +121,7 @@
 }
 
 .hot_container .platform .list .win-odds span[data-v-d06787cb]:last-child,.hot_container .popular .list .win-odds span[data-v-d06787cb]:last-child {
-    text-align: right;
+    text-align: center;
     padding-right: .13333rem
 }
 
@@ -32794,7 +32794,7 @@ html:lang(ar) .WinTrx__C-head-more[data-v-ac90c264] {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
-    min-height: 15.68rem;
+    /* min-height: 15.68rem; */
     margin-top: .4rem
 }
 
@@ -32822,7 +32822,7 @@ html:lang(ar) .WinTrx__C-head-more[data-v-ac90c264] {
 
 .gameList .mySideBar .van-sidebar-item--select[data-v-c9ec78ed] {
     background-color: unset;
-    background:var(--main_gradient-color);
+    background: var(--main_gradient-color);
     background-size: 100% 100%;
     border-radius: 5px;
 }
@@ -33153,7 +33153,7 @@ html:lang(ar) .WinTrx__C-head-more[data-v-ac90c264] {
 .content__right .message svg[data-v-003e4505] {
     width: .74667rem;
     height: .74667rem;
-    color: var(--main-color)
+    color: #f9945c;
 }
 
 .content__right .point[data-v-003e4505] {

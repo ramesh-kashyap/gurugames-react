@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Popup from '../../../components/Popup';
 import { useToast } from '../../../components/ToastContext'; 
 
-const SOCKET_URL = 'https://khelmantra.live'; 
+const SOCKET_URL = 'https://gurugames.org'; 
 
 
 const socket = io(SOCKET_URL, {

@@ -16,7 +16,7 @@ export default function Dashboard() {
   const [gameId, setGameId] = useState(null);
   const [checkRecharge, setCheckRecharge] = useState(1);
   const [rechargePopup, setRechargePopup] = useState(0); // Assume this state controls the popup
-
+  const [winners, setWinners] = useState([]);
 
   const navigate = useNavigate();
 
@@ -86,19 +86,25 @@ export default function Dashboard() {
     }
   };
 
-  const openInSameTab = (url) => {
-    window.location.href = url;
-  };
+const openInNextTab = (url) => {
+  window.open(url, '_blank', 'noopener,noreferrer');
+};
 
   const loginToAviatorGame = async () => {
     try {
-      const response = await Api.post(`/aviatorgame/${gameId}`);
+      let response;
+      // const response = await Api.post(`/aviatorgame/${gameId}`);
+       if (gameId === '562b299961b0ec40f252a832453c67b0') {
+      response = await Api.post(`/chickengame/${gameId}`); // 👈 use correct Chicken API
+    } else {
+      response = await Api.post(`/aviatorgame/${gameId}`);
+    }
+
+      console.log('Login response:', response);
       if (response.data.status) {
-        if (response.data.data.ErrorCode === 0) {
-          openInSameTab(response.data.data.Data);
-        } else {
-          console.error('ErrorCode is not 0:', response.data.data.ErrorCode);
-        }
+       
+          openInNextTab(response.data.data);
+        
       } else {
         console.error('Login failed:', response.data.message);
       }
@@ -123,7 +129,7 @@ export default function Dashboard() {
 },[]);
 
 const [isVisible, setIsVisible] = useState(true);
-
+  const [error, setError] = useState(null); 
   useEffect(() => {
     // Check if the button has been closed before by the user
     const isClosed = localStorage.getItem('addToDesktopClosed');
@@ -9627,8 +9633,8 @@ const [isVisible, setIsVisible] = useState(true);
                 <div data-v-12a80a3e="" className="navbar-fixed">
                     <div data-v-12a80a3e="" className="navbar__content">
                         <div data-v-12a80a3e="" className="navbar__content-left"><img data-v-003e4505=""
-                                src="/assets/png/BDGPRO2.png"
-                                alt="" style={{width:'137px', height:'47px',}}/></div>
+                                src="/assets/png/BDGPRO2.jpg"
+                                alt="" style={{width:'127px', height:'37px',}}/></div>
                         <div data-v-12a80a3e="" className="navbar__content-center">
                             <div data-v-12a80a3e="" className="navbar__content-title"></div>
                         </div>
@@ -9673,10 +9679,10 @@ const [isVisible, setIsVisible] = useState(true);
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240110082959xdnc.png" alt="Slide 1" /></SwiperSlide>
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240110083058enng.png" alt="Slide 2" /></SwiperSlide>
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240131163932lnmf.png" alt="Slide 3" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240131163950k45k.png" alt="Slide 4" /></SwiperSlide>
+        {/* <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240131163950k45k.png" alt="Slide 4" /></SwiperSlide> */}
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240413225400fvef.png" alt="Slide 5" /></SwiperSlide>
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240505153831soys.png" alt="Slide 6" /></SwiperSlide>
-        <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240514165448xobn.png" alt="Slide 7" /></SwiperSlide>
+        {/* <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240514165448xobn.png" alt="Slide 7" /></SwiperSlide> */}
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_202405021207257vp2.png" alt="Slide 8" /></SwiperSlide>
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_202408301343434jiv.png" alt="Slide 9" /></SwiperSlide>
         <SwiperSlide><img style={{width:'100%'}} src="/assets/png/new/Banner_20240505153831soys.png" alt="Slide 10" /></SwiperSlide>
@@ -9742,7 +9748,7 @@ const [isVisible, setIsVisible] = useState(true);
                             </div>
                         </div>
                     </div>
-                    <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section2' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section2')}
+                    {/* <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section2' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section2')}
                         id="gameType-flash">
                         <div className="van-badge__wrapper van-sidebar-item__text">
                             <div data-v-c9ec78ed="" className={`${activeSection === 'section2' ? 'whiteColor' : ''}`}>
@@ -9751,7 +9757,7 @@ const [isVisible, setIsVisible] = useState(true);
                                 </div> <span>Mini games</span>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section3' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section3')}
                         id="gameType-popular">
                         <div className="van-badge__wrapper van-sidebar-item__text">
@@ -9762,6 +9768,17 @@ const [isVisible, setIsVisible] = useState(true);
                             </div>
                         </div>
                     </div>
+                    {/* <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section2' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section2')}
+                        id="gameType-flash">
+                        <div className="van-badge__wrapper van-sidebar-item__text">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section2' ? 'whiteColor' : ''}`}>
+                                <div data-v-c9ec78ed=""
+                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141435wkxx.png)`}}>
+                                </div> <span>Games</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                   
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section5' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section5')}
                         id="gameType-fish">
@@ -9793,6 +9810,7 @@ const [isVisible, setIsVisible] = useState(true);
                             </div>
                         </div>
                     </div>
+                    
                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section8' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section8')}
                         id="gameType-sport">
                         <div className="van-badge__wrapper van-sidebar-item__text">
@@ -9800,6 +9818,16 @@ const [isVisible, setIsVisible] = useState(true);
                                 <div data-v-c9ec78ed=""
                                     style={{backgroundImage: `url(/assets/png/gamecategory_20240311141531fugo.png)`}}>
                                 </div> <span>Sports</span>
+                            </div>
+                        </div>
+                    </div> */}
+                     <div data-v-c9ec78ed="" className={`van-sidebar-item ${activeSection === 'section9' ? 'van-sidebar-item--select' : ''}`} tabIndex="0" onClick={() => showSection('section9')}
+                        id="gameType-video">
+                        <div className="van-badge__wrapper van-sidebar-item__text">
+                            <div data-v-c9ec78ed="" className={`${activeSection === 'section9' ? 'whiteColor' : ''}`}>
+                                <div data-v-c9ec78ed=""
+                                    style={{backgroundImage: `url(/assets/png/gamecategory_20240311141522uvco.png)`}}>
+                                </div> <span>Chicken Road</span>
                             </div>
                         </div>
                     </div>
@@ -9840,7 +9868,7 @@ const [isVisible, setIsVisible] = useState(true);
                                 <div data-v-acaadf81="">Big/Small/Odd/Even</div>
                             </h4>
                         </div>
-                        <div data-v-acaadf81="" className="lotterySlotItem"><img 
+                        {/* <div data-v-acaadf81="" className="lotterySlotItem"><img 
                             src="/assets/lotterycategory_20230714010246lyuc.png"
                             data-v-acaadf81="" className="ar-lazyload"
                                 data-origin="/assets/png/lotterycategory_20230714010246lyuc.png"/>
@@ -9850,9 +9878,9 @@ const [isVisible, setIsVisible] = useState(true);
                                 <div data-v-acaadf81="">Guess Number</div>
                                 <div data-v-acaadf81="">Green/Red/Violet to win</div>
                             </h4>
-                        </div>
+                        </div> */}
                     </div>
-                    <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
+                    {/* <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
                         <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(225)}><img data-v-860d7030=""
                                 className="min_game_img"
                                 style={{ border : `1px solid #e3c277` }}
@@ -9886,6 +9914,42 @@ const [isVisible, setIsVisible] = useState(true);
                                 data-origin="/assets/img/102.png"
                                 src="/assets/img/102.png"/></div>
                         
+                        
+                    </div> */}
+                    <div data-v-860d7030="" data-v-df3cc798="" className="minGame_container" id="section2" style={{ display: activeSection === 'section2' ? 'grid' : 'none' }}>
+                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick("a04d1f3eb8ccec8a4823bdf18e3f0e84")}><img data-v-860d7030=""
+                                className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
+                                data-origin="/assets/png/vendorlogo_20240102165536rgfg.png"
+                                src="/assets/png/vendorlogo_20240102165536rgfg.png"/>
+                        </div>
+                        {/* <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(261)}><img data-v-860d7030=""
+                                className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
+
+                                data-origin="/assets/png/img/22001.png"
+                                src="/assets/img/22001.png"/>
+                        </div>
+                       
+                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(235)}><img data-v-860d7030=""
+                                className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
+
+                                data-origin="/assets/img/800.png"
+                                src="/assets/img/800.png"/></div>
+                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(233)}><img data-v-860d7030=""
+                                className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
+
+                                data-origin="/assets/img/101.png"
+                                src="/assets/img/101.png"/></div>
+                        <div data-v-860d7030="" className="onlineGamesItem flash" onClick={() => handleGameClick(62)}><img data-v-860d7030=""
+                                className="min_game_img"
+                                style={{ border : `1px solid #e3c277` }}
+
+                                data-origin="/assets/img/102.png"
+                                src="/assets/img/102.png"/></div>
+                         */}
                         
                     </div>
                     <div data-v-d06787cb="" data-v-df3cc798="" className="hot_container"  id="section3" style={{ display: activeSection === 'section3' ? 'grid' : 'none' }}>
@@ -9924,10 +9988,8 @@ const [isVisible, setIsVisible] = useState(true);
                                             </defs>
                                         </svg><img data-v-d06787cb=""
                                             src="/assets/img/22001.png"
-                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png" onClick={() => handleGameClick(261)}/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">89.37%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '89.37%'}}></div>
+                                            alt="" data-img="/assets/png/avatar-2f23f3bd.png" onClick={() => handleGameClick("a04d1f3eb8ccec8a4823bdf18e3f0e84")}/></div>
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Aviator</span>
                                     </div>
                                 </div>
                              
@@ -9953,12 +10015,10 @@ const [isVisible, setIsVisible] = useState(true);
                                                     <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
-                                        </svg><img onClick={() => handleGameClick(62)} data-v-d06787cb=""
+                                        </svg><img onClick={() => handleGameClick("8a87aae7a3624d284306e9c6fe1b3e9c")} data-v-d06787cb=""
                                             src="/assets/img/102.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">90.11%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '90.11%'}}></div>
+                                   <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Dice</span>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
@@ -9983,12 +10043,10 @@ const [isVisible, setIsVisible] = useState(true);
                                                     <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
-                                        </svg><img  onClick={() => handleGameClick(229)}data-v-d06787cb=""
-                                            src="/assets/img/229.png"
+                                        </svg><img  onClick={() => handleGameClick("c68a515f0b3b10eec96cf6d33299f4e2")}data-v-d06787cb=""
+                                            src="/assets/png/229.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">87.72%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '87.72%'}}></div>
+                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Goal</span>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
@@ -10013,12 +10071,10 @@ const [isVisible, setIsVisible] = useState(true);
                                                     <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
-                                        </svg><img  onClick={() => handleGameClick(241)}data-v-d06787cb=""
+                                        </svg><img  onClick={() => handleGameClick("a669c993b0e1f1b7da100fcf95516bdf")}data-v-d06787cb=""
                                             src="/assets/png/900.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">91.83%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '91.83%'}}></div>
+                                   <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Hilo</span>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
@@ -10043,18 +10099,15 @@ const [isVisible, setIsVisible] = useState(true);
                                                     <stop offset="1" stopColor="#FFE081"></stop>
                                                 </linearGradient>
                                             </defs>
-                                        </svg><img  onClick={() => handleGameClick(407)} data-v-d06787cb=""
+                                        </svg><img  onClick={() => handleGameClick("b31720b3cd65d917a1a96ef61a72b672")} data-v-d06787cb=""
                                             src="/assets/png/22003.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">86.34%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '86.34%'}}></div>
+                                   <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Hotline</span>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div data-v-d06787cb="" className="popular">
-                            <div data-v-d06787cb="" className="title"><svg data-v-d06787cb="" width="24" height="24"
+                         
+                        {/* <div data-v-d06787cb="" className="popular"> */}
+                            {/* <div data-v-d06787cb="" className="title"><svg data-v-d06787cb="" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="hotGames">
                                     <g clipPath="url(#clip0_589_37755)">
                                         <path d="M24 0H0V24H24V0Z" fill="white" fillOpacity="0.01"></path>
@@ -10067,63 +10120,51 @@ const [isVisible, setIsVisible] = useState(true);
                                             <rect width="24" height="24" fill="white"></rect>
                                         </clipPath>
                                     </defs>
-                                </svg><span data-v-d06787cb="">Popular</span></div>
-                            <div data-v-d06787cb="" className="list">
+                                </svg><span data-v-d06787cb="">Popular</span></div> */}
+                           
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(51)}><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick("c311eb4bbba03b105d150504931f2479")}><img data-v-d06787cb=""
                                             src="/assets/png/51.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">81.64%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '81.64%'}}></div>
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Kino</span>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(300)}><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick("5c4a12fb0a9b296d9b0d5f9e1cd41d65")}><img data-v-d06787cb=""
                                             src="/assets/png/109.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">85.41%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '85.41%'}}></div>
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Mines</span>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(152)}><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick("9dc7ac6155c5a19c1cc204853e426367")}><img data-v-d06787cb=""
                                             src="/assets/png/grandwheel000000.png"
                                             alt="" data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">93.32%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '93.32%'}}></div>
+                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Mini Roulette</span>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(20)}><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick("6ab7a4fe5161936012d6b06143918223")}><img data-v-d06787cb=""
                                             src="/assets/png/7001.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">91.62%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '91.62%'}}></div>
+                                     <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Plinko</span>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(27)} ><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick("de88f202c5a8beeaccabbd944f8acfbf")} ><img data-v-d06787cb=""
                                             src="/assets/png/27.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">90.91%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '90.91%'}}></div>
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Balloon</span>
                                     </div>
                                 </div>
                                 <div data-v-d06787cb="">
-                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(46)}><img data-v-d06787cb=""
+                                    <div data-v-d06787cb="" className="item" onClick={() => handleGameClick("7a762edbe411ebc9be416870a734bd03")}><img data-v-d06787cb=""
                                             src="/assets/png/47.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
-                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">odds of
-                                            winning</span><span data-v-d06787cb="">87.31%</span>
-                                        <div data-v-d06787cb="" className="win-p" style={{width: '87.31%'}}></div>
+                                    <div data-v-d06787cb="" className="win-odds"><span data-v-d06787cb="">Kino 80</span>
                                     </div>
                                 </div>
-                                <div data-v-d06787cb="">
+                                {/* <div data-v-d06787cb="">
                                     <div data-v-d06787cb="" className="item" onClick={() => handleGameClick(1)}><img data-v-d06787cb=""
                                             src="/assets/png/1.png" alt=""
                                             data-img="/assets/png/avatar-2f23f3bd.png"/></div>
@@ -10149,10 +10190,12 @@ const [isVisible, setIsVisible] = useState(true);
                                             winning</span><span data-v-d06787cb="">81.45%</span>
                                         <div data-v-d06787cb="" className="win-p" style={{width: '81.45%'}}></div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
+                        {/* </div> jddjd*/}
                         </div>
                     </div>
+                    
                     <div data-v-54337c48="" data-v-df3cc798="" className="onlineGamesItem__container" id="section4" style={{ display: activeSection === 'section4' ? 'grid' : 'none' }}>
                         <div data-v-54337c48="" className="item" onClick={() => handleGameClick(144)}><img data-v-54337c48="" className="gameImg"
                                 data-origin="/assets/png/vendorlogo_20240102165352mtql.png"
@@ -10240,8 +10283,24 @@ const [isVisible, setIsVisible] = useState(true);
                                 src="/assets/png/vendorlogo_20240102165536rgfg.png"  onClick={() => handleGameClick(469)}/>
                         </div>
                     </div>
-                    <button data-v-df3cc798="" className="look_all"><img data-v-df3cc798=""
-                            src="/assets/png/all-5227f2a4.png" alt=""/>View All</button>
+                     <div data-v-df3cc798="" className="otherGame" id="section9" style={{ display: activeSection === 'section9' ? 'grid' : 'none' }}>
+                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
+                            <div data-v-1153e4fd="" className="title">
+                                <div data-v-1153e4fd="" className="tit">Chicken Road</div>
+                            </div><img data-v-1153e4fd="" className="game_img"
+                                data-origin="/assets/png/vendorlogo_20240102165536rgfg.png"
+                                src="/assets/png/vendorlogo_20240102165536rgfg.png"  onClick={() => handleGameClick("562b299961b0ec40f252a832453c67b0")}/>
+                        </div>
+                        <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
+                            <div data-v-1153e4fd="" className="title">
+                                <div data-v-1153e4fd="" className="tit">Chicken Road2</div>
+                            </div><img data-v-1153e4fd="" className="game_img"
+                                data-origin="/assets/png/vendorlogo_20240102165536rgfg.png"
+                                src="/assets/png/chicken-road-2.png"  onClick={() => handleGameClick("562b299961b0ec40f252a832453c67b0")}/>
+                        </div>
+                    </div>
+                    {/* <button data-v-df3cc798="" className="look_all"><img data-v-df3cc798=""
+                            src="/assets/png/all-5227f2a4.png" alt=""/>View All</button> */}
                 </div>
             </div>
             
@@ -10671,14 +10730,14 @@ const [isVisible, setIsVisible] = useState(true);
             onClick={handleClose} // Close icon action
             style={{ cursor: 'pointer' }}
           ></i>
-          <img
+          {/* <img
             data-v-b3bd7e49=""
             className="icon"
             src="/assets/png/appLogo.png"
             alt="Add to Desktop Icon"
             onClick={handleDownloadAPK} // Trigger APK download
             style={{ cursor: 'pointer' }}
-          />
+          /> */}
           <div data-v-b3bd7e49="" className="text"   onClick={handleDownloadAPK} // Trigger APK download
             style={{ cursor: 'pointer' }}>Add to Desktop</div>
         </div>

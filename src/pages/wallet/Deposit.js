@@ -77,17 +77,18 @@ const showSection = (sectionId) => {
       try {
         // Fetch pending UPI payments
         const response = await Api.get('/getPendingUpi');
-        
+        console.log('Pending UPI response:', response); // Log the response for debugging
         if (response.data.status) {
           setPendingUpi(response.data.data); // Save pending UPI data
           
-          console.log(response.data.data); // Log response for debugging
+          console.log('cbcb',response.data.data); // Log response for debugging
           
           // Loop through each pending UPI payment
           for (const upi of response.data.data) {
             // Extract the transaction_id from each UPI record
             const { transaction_id } = upi;
-    
+            console.log(`Processing UPI payment with ID: ${transaction_id} `);
+
             // Call updateUpiPaymentOrder for each pending UPI
             await updateUpiPaymentOrder(transaction_id);
 
@@ -102,7 +103,7 @@ const showSection = (sectionId) => {
         }
       } catch (err) {
         setError('Error fetching UPI payments');
-        console.error(err);
+        console.error('shhs',err);
       } finally {
         setLoading(false); // Set loading state back to false
       }
@@ -112,7 +113,7 @@ const showSection = (sectionId) => {
     const updateUpiPaymentOrder = async (transaction_id) => {
       try {
         const response = await Api.post('/updateUpiPaymentOrder', { transaction_id });
-    
+
         if (response.data.status) {
           console.log(`Order for transaction ${transaction_id} updated successfully`, response.data);
         } else {
@@ -173,7 +174,7 @@ const showSection = (sectionId) => {
   };
 
   const handleUpiDeposit = async () => {
-    if (upiValue < 200) {
+    if (upiValue < 100) {
         setError("Minimum Deposit amount is 200");
         return;
     }
@@ -191,9 +192,9 @@ const showSection = (sectionId) => {
         console.log(response.data);
 
         // Check if the response was successful
-        if (response.data.status && response.data.data?.payParams?.payUrl) {
+        if (response.data.status ) {
             // Navigate to the payUrl
-            window.location.href = response.data.data.payParams.payUrl;
+          window.open(response.data.data, '_blank', 'noopener,noreferrer');
         } else {
             // Handle failure case
             setError("Failed to create UPI payment order. Please try again.");

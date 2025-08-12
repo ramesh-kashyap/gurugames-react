@@ -13,7 +13,7 @@ import { useToast } from '../../../components/ToastContext';
 
 
 
-const SOCKET_URL = 'https://khelmantra.live';
+const SOCKET_URL = 'https://gurugames.org';
 
 
 const socket = io(SOCKET_URL, {
