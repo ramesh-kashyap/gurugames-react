@@ -210,7 +210,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .tabbar__container-item.active[data-v-6ab3f23e] {
-    color: var(--main-color) !important
+    color: #f9945c;
 }
 
 @media screen and (max-width: 500px) {
@@ -1569,9 +1569,9 @@ textarea {
     width: 2rem;
     height: .66667rem;
     margin-left: auto;
-    background: var(--main-color);
+    background: var(--main_gradient-color);
     color: #fff;
-    border: .01333rem solid var(--main-color);
+    border: .01333rem solid #f9945c;
     border-radius: .53333rem
 }
 
@@ -1671,9 +1671,9 @@ textarea {
 }
 
 :root {
-    --main-color:#885df1;
-    --main_gradient-color: linear-gradient(90deg, #885df1 0%, #885df1 100%);
-    --main_gradient-color2: linear-gradient(90deg, #885df1 0%, #885df1 100%);
+    --main-color: linear-gradient(to right, #e84638, #f9945c);
+    --main_gradient-color: linear-gradient(to right, #e84638, #f9945c);
+    --main_gradient-color2: linear-gradient(to right, #e84638, #f9945c);
     --light-main_gradient-color: var(--main_gradient-color);
     --text_white: #fff;
     --light-bg_white: #fff;

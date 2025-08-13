@@ -8,14 +8,41 @@ export default function AddBank() {
   const [accountNumber, setAccountNumber] = useState('');
   const [branchName, setBranchName] = useState('');
   const [ifscCode, setIfscCode] = useState('');
+  const [bankCode, setBankCode] = useState('');
   const navigate = useNavigate();
 
 
  
-
+const bankList = [
+  { code: 'IDPT0001', name: 'Canara Bank' },
+  { code: 'IDPT0002', name: 'DCB Bank' },
+  { code: 'IDPT0003', name: 'Federal Bank' },
+  { code: 'IDPT0004', name: 'HDFC Bank' },
+  { code: 'IDPT0005', name: 'Punjab National Bank' },
+  { code: 'IDPT0006', name: 'Indian Bank' },
+  { code: 'IDPT0007', name: 'ICICI Bank' },
+  { code: 'IDPT0008', name: 'Syndicate Bank' },
+  { code: 'IDPT0009', name: 'Karur Vysya Bank' },
+  { code: 'IDPT0010', name: 'Union Bank of India' },
+  { code: 'IDPT0011', name: 'Kotak Mahindra Bank' },
+  { code: 'IDPT0012', name: 'IDFC First Bank' },
+  { code: 'IDPT0013', name: 'Andhra Bank' },
+  { code: 'IDPT0014', name: 'Karnataka Bank' },
+  { code: 'IDPT0015', name: 'ICICI Corporate Bank' },
+  { code: 'IDPT0016', name: 'Axis Bank' },
+  { code: 'IDPT0017', name: 'UCO Bank' },
+  { code: 'IDPT0018', name: 'South Indian Bank' },
+  { code: 'IDPT0019', name: 'Yes Bank' },
+  { code: 'IDPT0020', name: 'Standard Chartered Bank' },
+  { code: 'IDPT0021', name: 'State Bank of India' },
+  { code: 'IDPT0022', name: 'Indian Overseas Bank' },
+  { code: 'IDPT0023', name: 'Bandhan Bank' },
+  { code: 'IDPT0024', name: 'Central Bank of India' },
+  { code: 'IDPT0025', name: 'Bank of Baroda' }
+];
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+        
     try {
       const response = await Api.post('/api/webapi/addBank', {
         bankName: nameBank,
@@ -23,6 +50,7 @@ export default function AddBank() {
         accountNumber: accountNumber,
         ifscCode: ifscCode,
         branchName,
+        bankCode,
       });
 
       if (response.data.status) {
@@ -88,15 +116,23 @@ export default function AddBank() {
                  </span>
                 </div>
                 <div data-v-24736190="" className="input">             
-                  <input
-                    data-v-24736190=""
-                    placeholder="   Please enter the Bank Name"
-                    maxLength="36"
-                    value={nameBank}  
-                    onChange={(e) => setNameBank(e.target.value)}  
-                   // Display the correct address
-                   
-                  />
+                 <select
+                 data-v-24736190=""
+  value={bankCode}
+  onChange={(e) => {
+    const selectedCode = e.target.value;
+    const selectedName = bankList.find((bank) => bank.code === selectedCode)?.name || '';
+    setBankCode(selectedCode);
+    setNameBank(selectedName); // Set nameBank automatically
+  }}
+>
+  <option value="">-- Select Bank --</option>
+  {bankList.map((bank) => (
+    <option key={bank.code} value={bank.code}>
+      {bank.name}
+    </option>
+  ))}
+</select>
                 </div>
               </div>
 

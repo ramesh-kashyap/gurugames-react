@@ -130,8 +130,8 @@ export default function Withdraw() {
           paymentMode = "BankCard";
           money=ruWithdraw;
 
-          if (parseFloat(money)< 111) {
-            showToast('Amount need to be greater than 111');
+          if (parseFloat(money)< 100) {
+            showToast('Amount need to be greater than 100');
             return;
           }
 

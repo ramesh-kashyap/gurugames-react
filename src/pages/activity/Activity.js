@@ -9517,13 +9517,13 @@ export default function Activity() {
               
             </div>
             <div data-v-12a80a3e="" className="navbar__content-center">
-              <div
+              {/* <div
                 data-v-12a80a3e=""
                 className="headLogo"
                 style={{  
                   backgroundImage: `url('assets/png/KHEL-MANTRA.png')`
                 }}
-              ></div>
+              ></div> */}
               <div data-v-12a80a3e="" className="navbar__content-title"></div>
             </div>
             <div data-v-12a80a3e="" className="navbar__content-right"></div>

@@ -10167,6 +10167,17 @@ html:lang(ar) .addBankCard__container[data-v-9694f22e] .searchbar-container i {
     height: 1.06667rem
 }
 
+.addUSDT__container-content-item select[data-v-24736190] {
+    border: none;
+    width: 100%;
+    padding: .13333rem .34667rem;
+    background: var(--bg_color_L2);
+    border-radius: .13333rem;
+    color: var(--text_color_L2);
+    font-size: .37333rem;
+    height: 1.06667rem
+}
+
 .addUSDT__container-content-item input[data-v-24736190]::-webkit-input-placeholder {
     color: var(--text_color_L3)
 }

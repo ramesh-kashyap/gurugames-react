@@ -53,6 +53,7 @@ export default function Promotion(){
   const fetchUserInfo = async () => {
     try {
       const response = await Api.get('/api/webapi/GetUserInfo');
+      console.log('cheehe',response);
       if (response.data.status) {
         setTotalMoney(response.data.data.money_user);
         setThirdPartyWallet(response.data.data.thirdparty_wallet);
@@ -72,66 +73,66 @@ export default function Promotion(){
 
   useEffect(() => {
     
-    const fetchPendingUpi = async () => {
-      setLoading(true); // Set loading state
-      try {
-        // Fetch pending UPI payments
-        const response = await Api.get('/getPendingUpi');
+  //   const fetchPendingUpi = async () => {
+  //     setLoading(true); // Set loading state
+  //     try {
+  //       // Fetch pending UPI payments
+  //       const response = await Api.get('/getPendingUpi');
         
-        if (response.data.status) {
+  //       if (response.data.status) {
           
-          console.log(response.data.data); // Log response for debugging
+  //         console.log(response.data.data); // Log response for debugging
           
-          // Loop through each pending UPI payment
-          for (const upi of response.data.data) {
-            // Extract the transaction_id from each UPI record
-            const { transaction_id } = upi;
+  //         // Loop through each pending UPI payment
+  //         for (const upi of response.data.data) {
+  //           // Extract the transaction_id from each UPI record
+  //           const { transaction_id } = upi;
     
-            // Call updateUpiPaymentOrder for each pending UPI
-            await updateUpiPaymentOrder(transaction_id);
+  //           // Call updateUpiPaymentOrder for each pending UPI
+  //           await updateUpiPaymentOrder(transaction_id);
   
              
   
-          }
+  //         }
   
-          fetchUserInfo();
+  //         fetchUserInfo();
   
-        } else {
-          setError('Failed to fetch UPI payments');
-        }
-      } catch (err) {
-        setError('Error fetching UPI payments');
-        console.error(err);
-      } finally {
-        setLoading(false); // Set loading state back to false
-      }
-    };
+  //       } else {
+  //         setError('Failed to fetch UPI payments');
+  //       }
+  //     } catch (err) {
+  //       setError('Error fetching UPI payments');
+  //       console.error(err);
+  //     } finally {
+  //       setLoading(false); // Set loading state back to false
+  //     }
+  //   };
     
 
-    // Helper function to call updateUpiPaymentOrder
-  const updateUpiPaymentOrder = async (transaction_id) => {
-    try {
-      const response = await Api.post('/updateUpiPaymentOrder', { transaction_id });
+  //   // Helper function to call updateUpiPaymentOrder
+  // const updateUpiPaymentOrder = async (transaction_id) => {
+  //   try {
+  //     const response = await Api.post('/updateUpiPaymentOrder', { transaction_id });
   
-      if (response.data.status) {
-        console.log(`Order for transaction ${transaction_id} updated successfully`, response.data);
-      } else {
-        console.error(`Failed to update transaction ${transaction_id}`, response.data);
-      }
-    } catch (err) {
-      console.error(`Error updating transaction ${transaction_id}:`, err);
-    }
-  };
+  //     if (response.data.status) {
+  //       console.log(`Order for transaction ${transaction_id} updated successfully`, response.data);
+  //     } else {
+  //       console.error(`Failed to update transaction ${transaction_id}`, response.data);
+  //     }
+  //   } catch (err) {
+  //     console.error(`Error updating transaction ${transaction_id}:`, err);
+  //   }
+  // };
 
 
     fetchUserInfo();
-    fetchPendingUpi();
+  //   fetchPendingUpi();
   }, []);
 
-  if (loading) {
-    return      <Loader/>
-    // You can replace this with a spinner if needed
-  }
+  // if (loading) {
+  //   return      <Loader/>
+  //   // You can replace this with a spinner if needed
+  // }
 
   
   

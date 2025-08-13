@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const Api = axios.create({
-  baseURL: 'http://localhost:3005',
+  
+  baseURL: 'http://localhost:5002', // Base URL for the API
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -17,7 +18,7 @@ Api.interceptors.request.use(config => {
 }, error => {
   return Promise.reject(error);
 });
-
+    
 Api.interceptors.response.use(
   response => response,
   error => {
