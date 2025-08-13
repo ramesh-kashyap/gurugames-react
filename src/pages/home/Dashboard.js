@@ -10560,7 +10560,7 @@ const [isVisible, setIsVisible] = useState(true);
               }}></div>
               <div data-v-bff59ba2="" className="step">0/1000</div>
             </div>
-            <div data-v-48dabef8="" className="btn n2">Deposit</div>
+            <div data-v-48dabef8="" className="btn n2">Depositss</div>
           </div>
         </div>
         <div data-v-48dabef8="" className="first_list-item">
