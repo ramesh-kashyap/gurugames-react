@@ -90,11 +90,16 @@ const openInNextTab = (url) => {
   window.open(url, '_blank', 'noopener,noreferrer');
 };
 
+const chickenGameIds = [
+      '562b299961b0ec40f252a832453c67b0', // old one
+      '2126c5c458316ba1f2df65b387b60408',
+    ];
+
   const loginToAviatorGame = async () => {
     try {
       let response;
       // const response = await Api.post(`/aviatorgame/${gameId}`);
-       if (gameId === '562b299961b0ec40f252a832453c67b0') {
+       if (chickenGameIds.includes(gameId)) {
       response = await Api.post(`/chickengame/${gameId}`); // 👈 use correct Chicken API
     } else {
       response = await Api.post(`/aviatorgame/${gameId}`);
@@ -10289,7 +10294,7 @@ const [isVisible, setIsVisible] = useState(true);
                                 <div data-v-1153e4fd="" className="tit">Chicken Road</div>
                             </div><img data-v-1153e4fd="" className="game_img"
                                 data-origin="/assets/png/vendorlogo_20240102165536rgfg.png"
-                                src="/assets/png/vendorlogo_20240102165536rgfg.png"  onClick={() => handleGameClick("562b299961b0ec40f252a832453c67b0")}/>
+                                src="/assets/png/vendorlogo_20240102165536rgfg.png"  onClick={() => handleGameClick("2126c5c458316ba1f2df65b387b60408")}/>
                         </div>
                         <div data-v-1153e4fd="" data-v-df3cc798="" className="lotterySlotItem__container">
                             <div data-v-1153e4fd="" className="title">

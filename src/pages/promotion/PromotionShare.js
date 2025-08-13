@@ -72,7 +72,7 @@ import ClipboardJS from 'clipboard';
     try {
       const response = await Api.post('/api/webapi/promotion', {});
       const userCode = response.data.info[0].code;
-      const siteLink = response.data.siteUrl || 'https://khelmantra.co';
+      const siteLink = response.data.siteUrl || 'https://gurugames.club';
       const link = `${siteLink}/register?invitationCode=${userCode}`;
       setInvitationLink(link);
     } catch (error) {
@@ -4690,9 +4690,9 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share0">
                              {/* <img v-lazy="getIcons('promotion/promotionShare', 'poster')" />  */}
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="/assets/png/BDGPRO2.png"
+                                    src="/assets/png/BDGPRO2.jpg"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6=""style={{color:'#000'}}>Khel Mantra</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6=""style={{color:'#000'}}>Big Manipur</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2" style={{color:'#000'}}>Full Odds <span>Bonus</span> Rate</div>
@@ -4716,9 +4716,9 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share1">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="/assets/png/BDGPRO2.png"
+                                    src="/assets/png/BDGPRO2.jpg"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="" style={{color:'#000'}}>Khel Mantra</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="" style={{color:'#000'}}>Big Manipur</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2" style={{color:'#000'}}>Full Odds <span>Bonus</span> Rate</div>
@@ -4742,9 +4742,9 @@ return(
                         <div data-v-3b74cce6="" className="promotionShare__container-swiper" id="share2">
                             
                             <div data-v-3b74cce6="" className="sContent"><img data-v-3b74cce6="" className="logo"
-                                    src="/assets/png/BDGPRO2.png"
+                                    src="/assets/png/BDGPRO2.jpg"
                                     alt=""/>
-                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Khel Mantra</span><span
+                                <div data-v-3b74cce6="" className="head1"><span data-v-3b74cce6="">Big Manipur</span><span
                                         data-v-3b74cce6="">Fair and justice</span><span data-v-3b74cce6="">Open and
                                         transparent</span></div>
                                 <div data-v-3b74cce6="" className="head2" style={{color:'#000'}}>Full Odds <span>Bonus</span> Rate</div>

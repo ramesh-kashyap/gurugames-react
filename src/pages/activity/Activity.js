@@ -9635,7 +9635,7 @@ export default function Activity() {
               />
               <div data-v-4a7709f3="" className="box-content">
                 <div data-v-4a7709f3="" className="box-title">
-                  Khel Mantra Tips and Trick Avoid Scammer
+                  Big Manipur Tips and Trick Avoid Scammer
                 </div>
               </div>
             </div>
@@ -9647,7 +9647,7 @@ export default function Activity() {
               />
               <div data-v-4a7709f3="" className="box-content">
                 <div data-v-4a7709f3="" className="box-title">
-                  Khel Mantra Official Channel
+                  Big Manipur Official Channel
                 </div>
               </div>
             </div>

@@ -6342,7 +6342,7 @@ export default function Message() {
         <g clipPath="url(#clip0_2085_65071)">
           <path
             d="M0 16.9334C0 16.004 0.327564 15.2161 0.982692 14.5725C1.63846 13.9283 2.42628 13.6065 3.34808 13.6065H6.69487V28.686H3.34744C2.42628 28.686 1.63846 28.3642 0.982692 27.72C0.327564 27.0758 0 26.2886 0 25.3584V16.9334ZM37.1942 3.08857C38.7179 1.6219 40.0994 0.816776 41.3397 0.673186C42.5795 0.529597 43.6776 0.861007 44.6346 1.66549C45.5904 2.47062 46.4051 3.65139 47.0782 5.20716C47.7513 6.76357 48.3 8.49883 48.7256 10.4123C49.1618 12.3955 49.4811 14.4026 49.6821 16.4232C49.8942 18.5161 50.0006 20.5104 50.0006 22.4065C50.0006 24.3027 49.868 26.1988 49.6019 28.095C49.3365 29.9911 48.9468 31.7706 48.4333 33.4347C47.9192 35.0982 47.3173 36.5559 46.6263 37.8078C45.9359 39.0604 45.1654 39.9905 44.3154 40.5982C43.4654 41.2072 42.5526 41.4213 41.5782 41.2424C40.6045 41.0636 39.5859 40.3661 38.5237 39.1495C37.4962 37.9334 36.1058 36.9225 34.3526 36.1174C32.5987 35.3129 30.6859 34.6328 28.6141 34.079C26.5396 33.5237 24.4379 33.0757 22.3173 32.7366C20.1917 32.3969 18.2436 32.0931 16.4724 31.8245C14.7013 31.5559 13.2224 31.2969 12.0359 31.0463C10.8494 30.7963 10.1846 30.4918 10.0429 30.1341V13.3379C10.1846 12.8373 10.7429 12.4258 11.7167 12.104C12.691 11.7822 13.9308 11.4777 15.4365 11.1918C16.9417 10.9052 18.6417 10.5924 20.5372 10.2527C22.4927 9.89819 24.4264 9.43226 26.3288 8.85716C28.308 8.26174 30.236 7.50803 32.0942 6.60331C33.9628 5.69708 35.6827 4.51195 37.1949 3.08857H37.1942ZM18.066 35.9841C18.2429 36.4136 18.4558 36.8783 18.7032 37.3796C18.9606 37.9296 19.2444 38.4667 19.5538 38.9892C19.9531 39.6673 20.3786 40.3296 20.8295 40.9745C21.4308 41.8334 22.0423 42.7373 22.6622 43.6847C23.2821 44.6334 23.7519 45.4918 24.0699 46.261C24.3891 47.0302 24.4865 47.6649 24.3622 48.1655C24.2385 48.6668 23.734 48.9168 22.8481 48.9168H19.8192C19.1109 48.9168 18.4558 48.7828 17.8532 48.5149C17.2506 48.2456 16.6756 47.8354 16.1263 47.2802C15.5776 46.7257 15.0109 46.0193 14.4263 45.1604C13.8417 44.3014 13.2128 43.2822 12.5397 42.1014C11.7256 40.7424 11.1583 39.5527 10.8397 38.5334C10.5205 37.5136 10.3077 36.6636 10.2019 35.9841C10.0603 35.1969 10.0603 34.5174 10.2019 33.945C10.4853 33.9809 10.8218 34.052 11.2115 34.1597C11.5301 34.2309 11.9199 34.32 12.3808 34.4277C12.841 34.5354 13.3724 34.6424 13.9744 34.7501C14.5769 34.8931 15.1167 35.027 15.5949 35.152C16.0731 35.2777 16.5071 35.4116 16.8968 35.5546C17.2907 35.6862 17.6806 35.8295 18.066 35.9841Z"
-            fill="var(--main-color)"
+            fill="#f9945c"
           ></path>
         </g>
         <defs>
@@ -9505,7 +9505,7 @@ export default function Message() {
               </div>
               <div data-v-12a80a3e="" className="navbar__content-center">
                 <div data-v-12a80a3e="" className="navbar__content-title">
-                  Notification
+                  Announcement
                 </div>
               </div>
               <div data-v-12a80a3e="" className="navbar__content-right"></div>
@@ -9526,17 +9526,17 @@ export default function Message() {
               <svg data-v-00f99608="" className="svg-icon icon-notificationIcon">
                 <use href="#icon-notificationIcon"></use></svg
               ><span data-v-00f99608=""
-                >AVOID FRAUD AND SUBMIT DEPOSIT TO SELF-SERVICE BDG PRO</span
+                >AVOID FRAUD AND SUBMIT DEPOSIT TO SELF-SERVICE BIG MANIPUR</span
               >
             </div>
             <div data-v-00f99608="" className="notification-container-content-desc">
-              If your deposit not receive, please send it directly to BDG PRO
+              If your deposit not receive, please send it directly to BIG MANIPUR
               Self-service Center (https://www.91service.in/wap/indexE.jsp) with
               provided proof deposit full detail showing (time,date,UTR number,
               amount and UPI ID receiver), wait till already get process, do not
               send to another person and trust anyone claiming to represent
-              BDG PRO. Always verify their authenticity through the official
-              community channels provided by BDG PRO. Your safety and trust in
+              BIG MANIPUR. Always verify their authenticity through the official
+              community channels provided by BIG MANIPUR. Your safety and trust in
               our community is very important to us .
             </div>
             <h5 data-v-00f99608="">2024-03-27 22:15:42</h5>
@@ -9548,10 +9548,10 @@ export default function Message() {
             >
               <svg data-v-00f99608="" className="svg-icon icon-notificationIcon">
                 <use href="#icon-notificationIcon"></use></svg
-              ><span data-v-00f99608="">Stay Vigilant - BDG PRO Notify</span>
+              ><span data-v-00f99608="">Stay Vigilant - BIG MANIPUR Notify</span>
             </div>
             <div data-v-00f99608="" className="notification-container-content-desc">
-              Be cautious of counterfeit websites mimicking our BDG PRO official
+              Be cautious of counterfeit websites mimicking our BIG MANIPUR official
               site, do not transfer money to anyone, including agents, and keep
               payment receipts and UTR numbers confidential.
             </div>
@@ -9564,7 +9564,7 @@ export default function Message() {
             >
               <svg data-v-00f99608="" className="svg-icon icon-notificationIcon">
                 <use href="#icon-notificationIcon"></use></svg
-              ><span data-v-00f99608="">BDG PRO </span>
+              ><span data-v-00f99608="">BIG MANIPUR </span>
             </div>
             <div data-v-00f99608="" className="notification-container-content-desc">
               We sincerely apologize for the inconvenience caused during our
@@ -9607,12 +9607,12 @@ export default function Message() {
                 <use href="#icon-notificationIcon"></use></svg
               ><span data-v-00f99608=""
                 >PREVENTING BEING SCAMMED / HACKED DUE SOMEONE PROCLAIMING AS
-                BDG PRO CUSTOMER SERVICE
+                BIG MANIPUR CUSTOMER SERVICE
               </span>
             </div>
             <div data-v-00f99608="" className="notification-container-content-desc">
               Our customer service never send a link to the member,if you
-              received a link from someone who pro-claimed as BDG PRO customer
+              received a link from someone who pro-claimed as BIG MANIPUR customer
               service do not click the link to prevent being hack or lost data.
               Thank you
             </div>

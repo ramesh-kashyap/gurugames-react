@@ -414,11 +414,11 @@ export default function AboutDetail() {
                     fontWeight: 'bolder'
         }}
                     >Website</span
-                  >refers to<a href="https://khelmantra.co/account" target="_blank">Bigdady</a
+                  >refers to<a href="https://gurugames.club/account" target="_blank">Bigdady</a
                   >Pro, accessible from <a
-                    href="https://khelmantra.co/account"
+                    href="https://gurugames.club/account"
                     target="_blank"
-                    >https://khelmantra.co/account</a
+                    >https://gurugames.club/account</a
                   >
                 </li>
                 <li
@@ -2086,9 +2086,9 @@ export default function AboutDetail() {
         }}
                 >
                   By visiting this page on our website:<a
-                    href="https://khelmantra.co"
+                    href="https://gurugames.club"
                     target="_blank"
-                    >https://khelmantra.co/login</a
+                    >https://gurugames.club/login</a
                   >
                 </li>
               </ul>
