@@ -104,6 +104,7 @@ const showSection = (sectionId) => {
       } catch (err) {
         setError('Error fetching UPI payments');
         console.error('shhs',err);
+        console.error('shhs',err);
       } finally {
         setLoading(false); // Set loading state back to false
       }
@@ -174,6 +175,7 @@ const showSection = (sectionId) => {
   };
 
   const handleUpiDeposit = async () => {
+    if (upiValue < 100) {
     if (upiValue < 100) {
         setError("Minimum Deposit amount is 200");
         return;
