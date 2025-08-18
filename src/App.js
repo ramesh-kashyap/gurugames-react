@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './pages/account/Login';
 import Register from './pages/account/Register';
 import Dashboard from './pages/home/Dashboard';
+
+import Flash from './pages/home/flash';
+
 import Logout from './pages/account/Logout'; // Import the Logout component
 import Activity from './pages/activity/Activity';
 import Promotion from './pages/promotion/Promotion';
@@ -138,6 +141,8 @@ function App() {
         <Route path="/wingo3" element={<PrivateRoute><Wingo3/></PrivateRoute>}/>
         <Route path="/wingo5" element={<PrivateRoute><Wingo5/></PrivateRoute>}/>
         <Route path="/wingo" element={<PrivateRoute><Wingo10/></PrivateRoute>}/>
+                <Route path="/flash" element={<PrivateRoute><Flash/></PrivateRoute>}/>
+
 
         <Route path="/wallet" element={<PrivateRoute><Withdraw/></PrivateRoute>}/>
         <Route path="/wallet" element={<PrivateRoute><WithdrawHistory/></PrivateRoute>}/>
